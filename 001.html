@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Day</title>
+    <style>
+        body{
+            background: rgb(58, 58, 204);
+            font: normal 15pt Arial;
+        }
+        header{
+            color: white;
+            font: normal 15pt Broadway;
+            text-align: center;
+        }
+        section{
+            background: white;
+            border-radius: 10px; /*borda arredondada*/
+            padding: 15px;/*empurrao, preenchimento*/
+            width: 500px;
+            height: 375px;
+            margin:auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.445);/*lateral vertical espalhamento*/
+        }
+        footer{
+            color: white;
+            font: normal 15pt Freestyle Script;
+            text-align: center;
+        }
+        div{
+            text-align: center;
+            padding: 13px;
+        }
+    </style>
+
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>TIME DAY</h1>
+    </header>
+    <section id='seçao'>
+        <div id='msg'>
+            
+        </div>
+        <div id='photo'>
+            <img id='imagem' src="manha2.png" alt="">
+            <p id='saudacao'> Bom dia !</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Victor`s Sites</p>
+    </footer>
+    <script>
+        function carregar(){
+        var msg = window.document.getElementById('msg');
+        var img = window.document.getElementById('imagem');//tem q chamar o id da foto colocada no html nao o id da div
+        var hello = window.document.getElementById('saudacao');//sempre lembrar de chamar a id e salvar aq na nova id dentro do js
+        var seleçao = window.document.getElementById('secao');
+        var data = new Date();//nao tem ponto entre new e date
+        //var hora = 4;
+        var hora = data.getHours();
+        msg.innerHTML = 'Agora são ' + hora + ' horas';
+        if( hora < 12){
+            img.src = 'manha2.png';
+            hello.innerHTML = 'BOM DIA !'
+            document.body.style.background = '#8f3b0b';
+        }else if(hora < 18){
+            img.src = "tarde2.png";
+            hello.innerHTML = "BOA TARDE !"
+            document.body.style.background = '#acb4ec';
+        }else{
+            img.src = 'noite2.png'
+            hello.innerHTML = "BOA NOITE !"
+            document.body.style.background = '#172542';
+        }
+        /* Para descobrir a cor ir no photoshop e usar o conta gotas e dps clicar no quadrado de cor embaixo na esquerda 
+        */
+        }
+    </script>
+</body>
+</html>
